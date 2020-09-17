@@ -16,6 +16,7 @@ def gen_video(input_dir, output_path, img_width, img_height, fps=20):
     for idx, img_name in enumerate(tqdm(image_names)):
         img_path = os.path.join(input_dir, img_name)
         img = cv2.imread(img_path)
+        img = cv2.resize(img, (img_width, img_height))
         video_writer.write(img)
     video_writer.release()
 
